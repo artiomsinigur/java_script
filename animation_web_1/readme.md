@@ -5,7 +5,7 @@ animations interactives de base ainsi qu'à les intégrer dans des pages Web. Un
 particulière est mise sur la qualité de la programmation et l'utilisation judicieuse des techniques de
 programmation graphique.
 
-Le cours Programmation d’animation pour le Web (582-P22-MA) fait partie du champ de
+Le cours Programmation d’animation pour le Web fait partie du champ de
 compétence Programmation et initie l'étudiant aux techniques de la programmation des
 animations rencontrées dans les sites Web. L’étudiant acquiert des connaissances techniques
 reliées à la programmation des animations et s'initie aux logiciels de base utilisés dans la
