@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<title>Ma premiere page</title>
+	   	<script>
+		
+            function chargement(){
+                  window.alert("au chargement de la page");
+                 //window.document.write("ma page"); 
+            }
+	         function direBonjour(){
+                  window.alert("bonjour");
+            }
+			function direBonsoir(){
+                  window.alert("bonsoir");
+            }
+			function addition(){
+                var nombre1 =10;
+                var nombre2 =20;
+                var resultat = nombre1+ nombre2;
+              /*  window.alert("resultat");
+                 window.alert(resultat);*/
+                  window.alert("resultat" + resultat);
+            }
+		</script> 
+
+	</head>
+	<body>
+	 <form name="formulaire1" >
+           <input type="text" value="" name="nom1"/>
+           <input type="button" value="cliquez-ici" 
+                  onmouseout="direBonsoir()" />
+         
+           <input type="button" value="faire addition " 
+                  onclick="addition()" />
+    </form>
+        
+        
+        
+		<p id="paragraphe1">Bienvenue</p>
+	
+	
+	
+	</body>
+
+
+
+
+</html>
