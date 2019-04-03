@@ -6,6 +6,8 @@
     <title>Inverse</title>
 </head>
 <body>
+    <input id="champ" type="text" name="text">
+    <button id="btn" type="button">Activer</button>
     
     <script>
         // Inverser une chaine de caracter
@@ -26,6 +28,18 @@
             return textStick;
         }
         console.log(deleteEmptySpace('Bonjour tout le monde'));
+
+        // ou avec addEventListener
+        var champ = document.getElementById('champ');
+        var btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function() {
+            var textStick = '';
+            for (var i = 0; i < champ.value.length; i++) {
+                if (champ.value[i] != ' ') textStick += champ.value[i];
+            }
+            console.log(textStick);
+        });
     </script>
 </body>
 </html>
