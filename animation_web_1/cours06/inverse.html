@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverse</title>
+</head>
+<body>
+    
+    <script>
+        // Inverser une chaine de caracter
+        function reverseText(text) {
+            var spliteArr = text.split('');
+            var reverseArr = spliteArr.reverse();
+            var joinArr = reverseArr.join('');
+            return joinArr;
+        }
+        console.log(reverseText('Bonjour'));
+
+        // Effacer toutes les espaces vide d'un phrase
+        function deleteEmptySpace(text) {
+            var textStick = '';
+            for (var i = 0; i < text.length; i++) {
+                if (text[i] != ' ') textStick += text[i];
+            }
+            return textStick;
+        }
+        console.log(deleteEmptySpace('Bonjour tout le monde'));
+    </script>
+</body>
+</html>

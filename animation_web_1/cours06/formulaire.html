@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+
+    <style>
+        .warning {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>Civilite
+            <input type="radio" name="civilite" class="civilite">
+            <input type="radio" name="civilite" class="civilite">
+        </div>
+        <div>Nom
+            <input id="nom" type="text" name="nom">
+        </div>
+        <div>Prenom
+            <input id="prenom" type="text" name="nom">
+        </div>
+        <div>
+            <textarea id="message" cols="30" rows="5"></textarea>
+        </div>
+        <div>
+            Interet <br>
+            <input class="interet" type="checkbox" name="commercial">commercial<br>
+            <input class="interet" type="checkbox" name="formateur">formateur<br>
+            <input class="interet" type="checkbox" name="direction">direction<br>
+        </div>
+        <button id="verifier" type="button">Verifier</button>
+    </form>
+</body>
+<script src="formulaire.js"></script>
+</html>
