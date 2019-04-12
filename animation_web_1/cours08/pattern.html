@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation de formulaire avec pattenr</title>
+    <style>
+    </style>
+</head>
+<body>
+    <form action="" class="formulaire_pattern">
+        <!-- Version 1 - Verification avec pseudo-class :invalide et :valide  -->
+        <!-- <label for="choose">Préférez-vous une banane ou une cerise?</label><br> -->
+        <!-- <input id="choose" type="text" name="j_name" pattern="banane|cerise" required><br> -->
+
+        <!-- Version 2 - Verification pattern en JS -->
+        <div>
+            <input type="text" name="nom" id="nom">
+        </div>
+        <div>
+            <input type="text" name="ville" id="ville" placeholder="ville">
+        </div>
+        <div>
+            <input type="text" name="tel" id="tel" placeholder="514-000-000">
+        </div>
+        <div>
+            <input type="text" name="email" id="email" placeholder="email@email.ca">
+        </div>
+
+        <button type="button" name="envoyer" id="btnEnvoyer">Envoyer</button>
+    </form>
+    <script src="pattern.js"></script>
+</body>
+</html>

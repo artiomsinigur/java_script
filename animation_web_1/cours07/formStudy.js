@@ -4,6 +4,7 @@ window.addEventListener('load', function() {
     var arrColors = document.querySelectorAll('.couleur');
     var arrModels = document.formulaire.car;
     var marques = document.getElementById('marque');
+    // Author: Artiom
 
     btnSubmit.addEventListener('click', function(e) {
         var msg = '';

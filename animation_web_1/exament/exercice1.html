@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		.bordurebleu{
+			border: 3px solid blue;
+		}
+
+	</style>
+	<title>Partie2</title>
+	<script>
+		window.addEventListener('load', function() {
+			// Partie 2 =================//
+			// Q1)
+			var paragraphe1 = document.getElementById('paragraphe1');
+			paragraphe1.addEventListener('click', function() {
+				paragraphe1.innerHTML = 'contenu du paragraphe modifié';
+			});
+
+			// Q2)
+			var btnClass1 = document.querySelector('.class1');
+			var contenu = document.getElementById('contenu');
+			btnClass1.addEventListener('click', function() {
+				contenu.style.border = '1px solid blue';
+			});
+		});
+	</script>
+</head>
+<body>
+		<!-- <p id="para">paragraphe</p> -->
+	Répondre aux questions de la partie 1 ici
+	<div>1- b) document.querySelector("#demo"). innerHTML = "texte";</div>
+	<div>2- a) function maFonction (){}</div>
+	<div>3- b) document.getElementById ("img1"). setAttribute("src", "images/poire.jpg ");</div>
+	<div>4- b) for(var i=0 ; i<=3 ; i++){}</div>
+	<div>5- a) node.firstChild</div>
+	<hr>
+
+	<h1>Mon titre h1</h1>
+	<p id="paragraphe1">
+		Le Lorem Ipsum est simplre cinq siècldifié.
+	</p>
+	
+	
+	<p id="menu">
+		<input type="button" value=" bouton 1" class="class1"/>
+
+	</p>
+
+	<p id="contenu">
+		Le Lorem Ipsum est simplre cinq siècldifié. Il a été popularisé dans les années etraset
+		contenant des passages duet, plus ré
+		
+	</p>
+
+</body>
+</html>
