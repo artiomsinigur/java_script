@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+
+    <style>
+        .warning {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="traitement.php" method="post" class="formulaire">
+        <div class="resultat"></div>
+        <div>Nom
+            <input id="nom" type="text" name="nom">
+        </div>
+        <div>Prenom
+            <input id="prenom" type="text" name="nom">
+        </div>
+        <div>
+            <textarea id="message" cols="30" rows="5"></textarea>
+        </div>
+        <button id="verifier" type="submit">Verifier</button>
+    </form>
+    <script src="form.js"></script>
+</body>
+</html>

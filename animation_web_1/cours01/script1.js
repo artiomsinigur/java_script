@@ -19,7 +19,6 @@ function verifier(){
     }else{
        objInput.style.backgroundColor = "transparent";
     }
-    
 }
 
 function confirmer(){

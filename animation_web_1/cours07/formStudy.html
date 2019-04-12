@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form</title>
+</head>
+<body>
+    <form action="" method="get"  name="formulaire">
+        <fieldset>
+            <div>Nom
+                <input class="nom" type="text" name="nom"><br>
+                Prenom
+                <input class="prenom" type="text" name="prenom"><br>
+            </div>
+            <div>Message
+                <textarea name="message" id=""></textarea><br>
+            </div>
+        </fieldset>
+
+        <!-- <p id="para1" class="paragraphe">Mon paragraphe 1
+            <a href="">link</a>
+        </p>
+		<p id="para2" class="para2" class="paragraphe">Mon paragraphe 2</p>		
+        <p class="jaune">Mon paragraphe 3</p>
+
+        <ul class="ul"></ul> -->
+        
+        <fieldset>
+            <div>Choisir les couleurs<br>
+                <label for="red">Red</label>
+                <input class="couleur" type="checkbox" name="red" id="red"><br>
+                <label for="blue">Blue</label>
+                <input class="couleur" type="checkbox" name="blue" id="blue"><br>
+            </div>
+            <div>Choisir le model<br>
+                <label for="audi">Audi</label>
+                <input type="radio" name="car" id="audi"><br>
+                <label for="bmw">BMW</label>
+                <input type="radio" name="car" value="bmw" id="bmw">
+            </div>
+            <div>
+                <select name="marque" id="marque">
+                    <option value="">Selectionnez la marque</option>
+                    <option value="q7">Audi Q7</option>
+                    <option value="a4">Audi A4</option>
+                    <option value="a3">Audi A3</option>
+                    <option value="m4">BMW M4</option>
+                    <option value="m5">BMW M5</option>
+                </select>
+            </div>
+        </fieldset>
+        <button type="button" class="submit">Envoyer</button>
+    </form>
+
+    <script src="formStudy.js"></script>
+</body>
+</html>
