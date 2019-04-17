@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    window.addEventListener('load', function () {
+        var envoyer = document.getElementById('envoyer');
+        var codePays = document.getElementById('codePays');
+        var nom = document.getElementById('nom');
+        var tel = document.getElementById('tel');
+
+        envoyer.addEventListener('submit', function(event) {
+            verifier(event);
+        });
+
+        function verifier(event) {
+            var bVerifier = false;
+            var msg = '';
+            // Premiere lettre en majuscule et au moins 3 caracteres
+            var regNom = /^[A-Z]{1}[A-Za-z]{2,}$/;
+
+            if (regNom.test(nom.value)) {
+                console.log('Nom Marche');
+            } else {
+                msg += 'Nom Marche pasn\n';
+                bVerifier = true;
+            }
+ 
+            // Verifier le code postal du Canada
+            // var regCode = /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/; ou
+            var regCode = /^([A-Z][0-9]){3}$/;
+            if (regCode.test(codePays.value)) {
+                console.log('Code postal Marche');
+            } else {
+                msg += 'Code postal Marche pasn\n';
+                bVerifier = true;
+            }
+
+            // Verifier le telephone
+            // ? = Facultatif
+            // [ -.] = indique les types des caracteres acceptes
+            var regTel = /^(514|438)[ -.]?[0-9]{3}[ -.]?[0-9]{4}$/;
+            if (regTel.test(tel.value)) {
+                console.log('Telephone Marche');
+            } else {
+                msg += 'Telephone Marche pas';
+                bVerifier = true;
+            }
+
+            if (bVerifier) event.preventDefault();
+
+            if (msg != '') {
+                // debugger;
+                var li = document.createElement('li');
+                document.querySelector('body').append(li)
+
+                var div = document.createElement('div');
+                li.append(div)
+                var msgErreur = document.createTextNode(msg);
+                div.append(msgErreur);
+                            
+                // document.querySelector('body').append(div);
+            }
+        }
+    });
+    </script>
+
+    <form action="traitement.php" id="envoyer">
+        <div>Nom
+            <input type="text" name="nom" id="nom">
+        </div>
+        <div>Code pays
+            <input type="text" name="codePays" id="codePays">
+        </div>
+        <div>Telephone
+            <input type="text" name="tel" id="tel">
+        </div>
+        <button type="submit" tabindex="1">Envoyer</button>
+    </form>
+</body>
+</html>
