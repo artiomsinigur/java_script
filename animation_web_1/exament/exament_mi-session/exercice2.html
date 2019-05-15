@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title> Exercice 2</title>
+	<meta charset="UTF-8">
+	<meta name="viewimage" content="initial-scale=1.0">
+<style>
+label{
+	display:block;
+	width:150px;
+}
+
+.error {
+	background-color: tomato;
+}
+</style>
+<script>
+	window.addEventListener('load', function() {
+		var btnEnvoyer = document.getElementById('envoyer1');
+		var message = document.getElementById('message');
+				
+		btnEnvoyer.addEventListener('click', function(){	
+			var msg = '';
+
+			// Verifier le champ nom ===============//
+			var nom = document.getElementById('nom1');
+			if (nom.value == '') {
+				nom.classList.add('error');
+				msg += '-Le champ nom est vide\n';
+			} else {
+				nom.classList.remove('error');
+			}
+
+			// Verifier le champ email ===============//
+			var email = document.getElementById('email1');
+			if (email.value == '') {
+				email.classList.add('error');
+				msg += '-Le champ email nom est vide\n';
+			} else {
+				email.classList.remove('error');
+			}
+
+			// Verifier le champ code postal ===============//
+			var codePostal = document.getElementById('codepostal1');
+			if (codePostal.value == '') {
+				codePostal.classList.add('error');
+				msg += '-Le champ Code Postal nom est vide';
+			} else {
+				codePostal.classList.remove('error');
+			}
+
+			// Afficher les messages d'erreurs ================//
+			if (msg != '') {
+				message.append(msg);
+				// console.log(msg);
+			} else {
+				var success = document.createTextNode('-Succès');
+				message.append(success);
+			}
+		});
+	});
+
+
+</script>
+
+</head>
+
+<body>
+	<div id="message"></div>
+	<form>
+		<div>
+			<label for="nom1">Nom</label> <input type="text" name="nom" value="" id="nom1"/>
+			
+		</div>	
+		<div>
+			<label for="nom1">Email</label>  <input type="text" name="email" id="email1"/>
+			
+		</div>
+		<div>
+			<label for="nom1">Code Postal </label> <input type="text" name="codepostal" id="codepostal1"/>
+			
+		</div>
+		<div>
+			 <input type="button" name="envoyer"  value="verifier" id="envoyer1"/>
+			
+		</div>
+	
+	</form>
+
+</body>
+
+</html>

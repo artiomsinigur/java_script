@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title> Exercice 4</title>
+	<meta charset="UTF-8">
+	<meta name="viewimage" content="initial-scale=1.0">
+<style>
+label{
+	display:block;
+	width:150px;
+}
+.border {
+	border: 2px solid red;
+}
+</style>
+<script>
+
+
+window.addEventListener('load', function() {
+		var btnAjouter = document.getElementById('btn1');
+		var imgs = document.querySelectorAll('img');
+
+		btnAjouter.addEventListener('click', function() {
+			imgs[0].classList.add('border');
+			imgs[1].classList.add('border');
+		});
+
+});
+
+
+</script>
+
+</head>
+
+<body>
+
+		<div> <input type="button" name="ajouter"  value="ajouter une bordure" id="btn1"/></div>
+		<div>
+			<img src="pomme.jpg" alt="ma pomme "/>
+			<img src="pomme2.jpg" alt="ma deuxième pomme"/>
+			
+		</div>	
+
+
+</body>
+
+</html>
