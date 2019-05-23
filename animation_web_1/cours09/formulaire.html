@@ -29,20 +29,20 @@
                 bVerifier = true;
             }
  
-            // Verifier le code postal du Canada
+            // Verifier le code pays du Canada
             // var regCode = /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/; ou
             var regCode = /^([A-Z][0-9]){3}$/;
             if (regCode.test(codePays.value)) {
                 console.log('Code postal Marche');
             } else {
-                msg += 'Code postal Marche pasn\n';
+                msg += 'Code postal Marche pas\n';
                 bVerifier = true;
             }
 
             // Verifier le telephone
             // ? = Facultatif
             // [ -.] = indique les types des caracteres acceptes
-            var regTel = /^(514|438)[ -.]?[0-9]{3}[ -.]?[0-9]{4}$/;
+            var regTel = /^(514|438)[ -.][0-9]{3}[ -.]?[0-9]{4}$/;
             if (regTel.test(tel.value)) {
                 console.log('Telephone Marche');
             } else {

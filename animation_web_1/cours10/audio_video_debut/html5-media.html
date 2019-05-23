@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cours JS</title>
+		<meta charset="UTF-8">
+		<!-- <link rel="stylesheet" type="text/css" media="screen" href="style5.css" /> -->
+		<style>
+			#ball {
+				position: relative;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				background-color: tomato;
+			}
+		</style>
+		<script type="text/javascript">
+		
+		window.addEventListener('load', function(){
+			var btnDemarrerAudio = document.getElementById('demarrer_audio');
+			var audio = document.getElementsByTagName('audio')[0];
+
+			var btnDemarrer = document.getElementById('demarrer');
+			var btnPause = document.getElementById('pause');
+			var btnPlayPause = document.getElementById('playpause');
+			var btnZoommer = document.getElementById('zoommer');
+			var btnDezoommer = document.getElementById('dezoommer');
+			var video = document.getElementById('video1');
+
+			btnDemarrerAudio.addEventListener('click', function(e) {
+				if (audio.paused) {
+					audio.play();
+					btnDemarrerAudio.defaultValue = "Pause";
+				} else {
+					audio.pause();
+					btnDemarrerAudio.defaultValue = "Play";
+				}
+			});
+
+
+			btnDemarrer.addEventListener('click', function() {
+				video.play();
+			});
+
+			btnPause.addEventListener('click', function() {
+				video.pause();
+			});
+
+			btnPlayPause.addEventListener('click', function() {
+				if (video.paused) {
+					video.play();
+				} else {
+					video.pause();
+				}
+			});
+
+			// videoHeight - prendre l'hauteur reel de video
+			video.height = video.videoHeight;
+			// video.style.height = '150px';
+			btnZoommer.addEventListener('click', function() {
+				// var increment = 25;
+				// video.style.height = video.style.height + increment + 'px';
+				video.height = video.height * 1.1;
+			});
+
+			btnDezoommer.addEventListener('click', function() {
+				if (video.height <= video.videoHeight) {
+					video.height = video.videoHeight;
+					console.log('trop petit');
+				} else {
+					video.height = video.height * 0.9;
+				}
+			});
+
+
+			// Evenements clavier =================//
+			var ball = document.getElementById('ball');
+			var arrowUp = 38
+			var arrowRight = 39
+			var arrowDown = 40
+			var arrowLeft = 37
+
+			console.log(event.keyCode);
+			ball.style.position = 'relative';
+			ball.style.left = '0px';
+			ball.style.top = '0px';
+			
+			document.addEventListener('keydown', function(e) {
+				if (event.keyCode == arrowRight) {
+					// parseInt pour enlever les 'px'
+					var increment = parseInt(ball.style.left);
+					increment += 10;
+					ball.style.left = increment + 'px';
+				}
+			})
+
+
+		});
+
+		</script>
+		<!--[if lt IE 9]>
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+			<h2>Eveniments clavier</h2>
+			<p><strong>onkeypress:</strong> lorsque une touche est activée</p>
+			<p><strong>onkeydown:</strong> lorsque une touche est enfoncée</p>
+			<p><strong>onkeyup:</strong> lorsque une touche est relevée</p>
+
+			<h2>Quleques propriétés</h2>
+			<p><strong>keyCode:</strong> code numerique de la touche du clavier</p>
+			<p><strong>altKey:</strong> true si la touche LAT est activé</p>
+			<p><strong>ctrlKey:</strong> true si la touche CTRL est activé</p>
+
+			<div id="ball">
+			</div>
+
+					<h2>LES MEDIAS AUDIO</h2>
+					<audio controls="controls" >
+						<source src="audio/audio.ogg" type="audio/ogg">
+						<source src="audio/audio.mp3" type="audio/mp3">
+						<source src="audio/audio.wav" type="audio/wav">
+							Votre navigateur ne prends pas en charge la balise "audio" HTML5
+					</audio>
+									<input type="button" value="Play" id="demarrer_audio"  />
+
+					<h2>LES MEDIAS VIDEOS</h2>
+					
+					
+					
+					
+					<video controls="controls" id="video1">
+						<source src="video/video.ogg" type="audio/ogg">
+						<source src="video/video.mp4" type="audio/mp4">
+							Votre navigateur ne prends pas en charge la balise "video" HTML5
+					</video><br />
+						<input type="button" value="Play" id="demarrer"  />
+						<input type="button" value="Pause" id="pause"  />
+						<input type="button" value="PlayPause" id="playpause"  />
+						<input type="button"  value="Zoom+"   id="zoommer" />
+						<input type="button" value="Zoom-"  id="dezoommer"  />
+						
+
+	</body>
+</html>
