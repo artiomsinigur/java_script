@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function getxhr() {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                // code for modern browsers (Firefox, Chrome)
+                xhr = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                // code for old IE browsers
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                alert("Votre navigatuer n'est pas compatible avec AJAX");
+            }
+            return xhr;
+        }
+
+        window.addEventListener('load', function() {
+            var btn = document.getElementById('btn');
+            btn.addEventListener('click', function(e) {
+                // Etape 1 creer l'objet xhr
+                var xhr = getxhr();
+                // Etape 2 preparer la reponse
+                    // redystate
+                        // 1. initialiser 
+                        // 2. serveur recoie les donnes
+                        // 3. serveur envoie les donnes
+                        // 4. recevoir les donnees
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        alert(xhr.responseText);
+                    }
+                }
+
+                // Etape 3 envoyer la requete
+                xhr.open("GET", "data.txt", true); // true mode asynchrone
+                xhr.send(null);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" id="btn" name="btn">Lecture</button>
+    </div>
+    <div class="list">
+
+    </div>
+</body>
+</html>

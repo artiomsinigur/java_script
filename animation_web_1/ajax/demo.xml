@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<presonnes>
+    <personne>
+        <nom>Sinigur</nom>
+        <prenom>Artiom</prenom>
+        <age>31</age>
+    </personne>
+    <personne>
+        <nom>Sinigur</nom>
+        <prenom>Artiom</prenom>
+        <age>31</age>
+    </personne>
+</presonnes>
