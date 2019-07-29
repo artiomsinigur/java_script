@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .global {
+                display : flex;
+                flex-direction: column;
+                border : 1px solid #aaa;
+                justify-content: space-around;
+                height: 100vh;
+
+            }
+
+            header, footer {
+                background-color : #ccc;
+                color : #444;
+                font-size: 1em;
+
+            }
+
+
+
+main {
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    border : 1px solid #aaa;
+
+}
+            .choix {
+                display: flex;
+                flex-direction: column;
+                flex : 1 0 30vh;
+                justify-content: space-around;
+            }
+
+            .choix div {
+                font-size: 2em;
+                display : flex;
+                flex-direction: column;
+                justify-content:space-around;
+
+                align-items:center;
+                flex : 1; 
+                max-height : 20vh;
+                padding : 4px;
+                background-color: #bbb;
+                transition: all 0.5s ease-in-out;
+                font-weight: 900;
+            }
+
+            .choix_div_couleur
+            {
+                color: #0000ff;
+                background-color: #0a0 !important;
+                transition: all 0.5s ease-in-out;
+                
+            }
+
+            main button {
+                display:flex;
+                flex:0;
+                font-size: 2em;
+                padding : 5px;
+            }
+
+        </style>
+       
+
+    </head>
+    <body>
+        <div class='global'>
+            <header>
+                <h1>Premier cours de programmation d'animation</h1>
+            </header>
+            <main>
+                <button id='monBouton'>Mon bouton</button>
+                <section class='choix'>
+                    <div>UN</div>
+                    <div>DEUX</div>
+                    <div>TROIS</div>
+                </section>
+            </main>
+            <footer>
+            <h3>Collège de Maisonneuve</h3>
+            </footer>
+        </div> <!-- fin .global -->
+    </body>
+        <script>
+            // let elmDiv = document.getElementsByTagName('div')[1]
+            let elmBouton = document.getElementById('monBouton')
+            elmBouton.addEventListener('click', function(){
+                let elmDiv = document.querySelector('main div')
+                elmDiv.classList.toggle('choix_div_couleur')
+                console.log( elmDiv.classList)
+            })
+
+
+        </script>
+</html>

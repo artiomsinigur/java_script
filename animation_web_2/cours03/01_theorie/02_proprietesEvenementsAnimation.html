@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02-Propriétés des événements des animations</title>
+
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Reset... */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Mise en page */
+
+        html {
+            font-size: .875em;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100vw;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 1rem;
+            text-align: center;
+            /*Conteneur Flex en colonne*/
+            display: flex;
+            flex-direction: column;
+        }
+
+        header,
+        footer {
+            /*Item flex*/
+            flex: 0 0 5%;
+
+            /*Décoration*/
+            padding: 0.5rem;
+            background-color: #ffeb3e;
+            color: #3e3e3e;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+            text-shadow: 0 2px 2px #b8b8b8;
+        }
+
+        section {
+            /*Étirement comme item flex*/
+            flex: 1 1 auto;
+
+            /*Conteneur flex en colonne*/
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            /*Décoration*/
+            margin: 1rem 0;
+            background-color: #e4e4e4;
+        }
+
+
+        /* Animation */
+
+        @keyframes deplacerRectangle {
+            from {
+                transform: translateX(0%);
+            }
+
+            to {
+                transform: translateX(200%);
+            }
+        }
+
+
+        #rectangle {
+            /*Alignement comme item flex*/
+            align-self: flex-start;
+            width: 33.333333%;
+            height: 50vh;
+            background-color: #21cbe1;
+            /*Bleu*/
+            /*Point de transformation à gauche au bas*/
+            transform-origin: left bottom;
+
+            /*Animation du rectangle : 5 itérations de 1 seconde*/
+            animation: deplacerRectangle 3s 2 linear;
+        }
+
+        /* Styles pour les écrans plus larges*/
+
+        @media screen and (min-width: 768px) {
+            /*On augmente la taille du texte*/
+            html {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            /*On augmente la taille du texte*/
+            html {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Écouter et gérer les événements des animations</h1>
+        <p>Le rectangle se déplacera <b>5</b> fois... La durée de chaque déplacement est de 1s.</p>
+    </header>
+
+    <section>
+        <h1 id="infos">0 seconde(s) écoulé(es).</h1>
+        <div id="rectangle"></div>
+    </section>
+
+    <footer>
+        <p>Propriétés des événements des animations: <i>target</i>, <i>type</i> et <i>elapsedTime</i></p>
+    </footer>
+
+    <script>
+
+        (function() { //IIFE
+            //Récupérer avec JavaScript le rectangle animé
+            var leRectangleAnime = document.getElementById("rectangle");
+			
+            //Récupérer avec JavaScript l'élément dans lequel on va afficher les infos
+            var divInfos = document.getElementById("infos");
+
+            //Attribuer les écouteurs d'événement
+            leRectangleAnime.addEventListener('animationstart', afficherInfos, false);
+            leRectangleAnime.addEventListener('animationiteration',afficherInfos,false);
+            leRectangleAnime.addEventListener('animationend', afficherInfos, false);
+
+            //Afficher des infos selon les événements de l'animation
+            function afficherInfos(e) {
+                console.log("target : ", e.target);
+                console.log("type: ", e.type);
+
+                divInfos.innerHTML = e.elapsedTime;
+                
+                if (e.type == 'animationstart') {
+                    this.innerHTML += 'Début';
+                } else if (e.type == 'animationiteration') {
+                    this.innerHTML = 'Iteration';
+                } else if (e.type == 'animationend') {
+                    this.innerHTML = 'Fin';
+                }
+            }
+
+        })(); //Fin IIFE
+    </script>
+
+</body>
+
+</html>

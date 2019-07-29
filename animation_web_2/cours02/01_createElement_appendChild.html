@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>01-createElement/appendChild</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		/* Reset... */
+
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+
+		/* Mise en page */
+
+		html {
+			font-size: .875em;
+		}
+
+		body {
+			min-height: 100vh;
+			max-width: 100vw;
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			font-size: 1rem;
+			text-align: center;
+			/*Conteneur Flex en colonne*/
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		header,
+		footer {
+			/* Item flex */
+			flex: 0 0 5%;
+
+			/* Décoration */
+			padding: 0.5rem;
+			background-color: #ffeb3e;
+			color: #3e3e3e;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			margin: 0.5rem 0;
+			text-shadow: 0 2px 2px #b8b8b8;
+		}
+
+
+		footer {
+			/*Conteneur flex*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		section {
+			/*Étirement comme item flex*/
+			flex: 1 1 0px;
+			/*Conteneur flex en colonne*/
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			/*Décoration*/
+			margin: 1em 0;
+			background-color: #e4e4e4;
+		}
+		
+		/* Styles pour les écrans plus larges*/
+
+		@media screen and (min-width: 768px) {
+			/*On augmente la taille du texte*/
+			html {
+				font-size: 1em;
+			}
+		}
+
+		@media screen and (min-width: 992px) {
+			/*On augmente la taille du texte*/
+			html {
+				font-size: 1.2em;
+			}
+		}
+
+		
+		/*Classe CSS à attribuer aux éléments créés*/
+		.rectangle {
+			background-color: #21cbe1;
+			padding: 0.5em;
+			width: 100%;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<header>
+		<h1>Création dynamique d'éléments HTML</h1>
+	</header>
+
+	<section> </section>
+
+	<footer>
+		<p>La division a été créée avec <i>createElement</i> et ajoutée DANS la section avec <i>appendChild</i>.</p>
+	</footer>
+
+
+	<!-- Scripts Javascript -->
+	<script type="text/javascript">
+		(function() { //IIFE
+
+			//Création d'un élément HTML
+			var elmDiv = document.createElement('div')
+
+			//Ajout d'une classe CSS 
+			elmDiv.classList.add("rectangle");
+
+			//Ajout d'un contenu textuel
+			elmDiv.innerHTML = "Ajout d'une balise div DANS la section...";
+
+			console.log(elmDiv);
+
+			//Mettre l'élément <div> dans la section...
+			var laSection = document.querySelector("section");
+			
+			laSection.appendChild(elmDiv)
+
+		})();//Fin IIFE
+	</script>
+</body>
+
+</html>

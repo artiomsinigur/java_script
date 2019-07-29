@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <style>
+            .scene {
+                position : relative;
+                width: 800px;
+                height:800px;
+                border : 1px solid #999;
+            }
+            .scene div {
+                display : block;
+                position: absolute;
+                transform : translate(0,0);
+                width : 150px;
+                height: 150px;
+                border : 2px solid #aaa;
+                font-family : arial;
+                font-size : 1em;
+                color : #fff;
+                transition : background-color 1s ease-in-out;
+
+               
+                animation:intro 6s  5 alternate forwards;
+            }
+            @keyframes intro {
+                0%,100% { transform: translate(0,0) ;}
+                25% {  transform: translate(650px, 0);}
+                50% {transform: translate(650px,650px);}
+                75% {transform: translate(0px,650px); ;}
+                100% { transform: translate(0, 0);}
+
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function(){
+
+                let elm = document.querySelector('.scene div')
+                elm.addEventListener('animationstart', infoAnimation, false);
+                elm.addEventListener('animationiteration',infoAnimation,false);
+                elm.addEventListener('animationend', infoAnimation, false);
+            })
+            let compteur = 0
+            function infoAnimation(evt)
+            {
+                compteur++
+               this.innerHTML = evt.elapsedTime + '<br>'
+                console.log(evt)
+                if (evt.type == 'animationstart') {
+                    this.innerHTML += 'DEBUT ' + compteur
+
+                    this.style.backgroundColor = couleurAleatoire()
+                }
+                else
+                if (evt.type == 'animationiteration')
+                {
+                    this.innerHTML += 'ITERATION ' + compteur
+
+                    this.style.backgroundColor = couleurAleatoire() 
+                }
+                else
+                {
+                    this.innerHTML += 'FIN ' + compteur 
+                    this.style.backgroundColor = couleurAleatoire()  
+                }
+            }
+
+            function couleurAleatoire()
+            {
+                let rouge = Math.floor(Math.random()*256)
+                let vert = Math.floor(Math.random() * 256)
+                let bleu = Math.floor(Math.random() * 256)
+                return 'rgb(' + rouge + ',' + vert + ',' + bleu +')'
+            }
+        </script>
+    </head>
+    <body>
+        <section class='scene'>
+            <div>1</div>
+        </section>
+    </body>
+
+
+
+</html>

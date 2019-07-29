@@ -91,6 +91,21 @@
 					increment += 10;
 					ball.style.left = increment + 'px';
 				}
+				if (event.keyCode == arrowLeft) {
+					var increment = parseInt(ball.style.left);
+					increment -= 10;
+					ball.style.left = increment + 'px';
+				}
+				if (event.keyCode == arrowDown) {
+					var increment = parseInt(ball.style.top);
+					increment += 10;
+					ball.style.top = increment + 'px';
+				}
+				if (event.keyCode == arrowUp) {
+					var increment = parseInt(ball.style.top);
+					increment -= 10;
+					ball.style.top = increment + 'px';
+				}
 			})
 
 

@@ -1,0 +1,178 @@
+/* Animation du premier mot
+   ========================================================================== */
+
+/**
+ * Mettre le mot au centre de l'écran et ajouter un pseudo-élément.
+ */
+
+.mot1 {
+	opacity: 1;
+	transform: translateY(46vh);
+}
+
+.mot1::before {
+	content: "";
+	position: absolute;
+	background-color: #D3DFDD;
+
+}
+
+
+@keyframes ecrireMot {
+	from {
+		
+	}
+
+	to {
+		
+	}
+}
+
+
+/**
+ * On démarre avec l'animation du premier mot - le nombre d'étapes correspond au nombre de lettres
+ */
+
+.mot1::before {
+	/*Animation par étape*/
+	
+}
+
+
+/* Animation de la couleur de la section qui contient les mots
+   ========================================================================== */
+
+@keyframes animCouleur {
+	from {
+		background-color: #2B345B;
+	}
+
+	15%,
+	20% {
+		background-color: #356dc2;
+	}
+
+	35%,
+	40% {
+		background-color: #9CD6DE;
+	}
+
+	45%,
+	50% {
+		background-color: #F06E68;
+	}
+
+	65%,
+	70% {
+		background-color: #ECC963;
+	}
+
+	85%,
+	90% {
+		background-color: #356dc2;
+	}
+
+	to {
+		background-color: #D3DFDD;
+	}
+}
+
+.animCouleur {
+		animation: animCouleur 750ms ease-out 250ms both;
+}
+
+
+/* Animation du bond vers le haut
+   ========================================================================== */
+
+@keyframes bondEnHaut {
+	from {
+		opacity: 0;
+		transform: translateY(46vh);
+	}
+
+	60% {
+		opacity: 1;
+		transform: translateY(-50%);
+	}
+
+	75% {
+		transform: translateY(50%);
+	}
+
+	90% {
+		transform: translateY(-25%);
+	}
+
+	to {
+		transform: translateY(0%);
+	}
+}
+
+.bondEnHaut {
+		animation: bondEnHaut 750ms 750ms cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+/* Animation du bond vers le centre
+   ========================================================================== */
+@keyframes versLeCentre {
+  from {
+    opacity: 0;
+    transform: scale(.1, .1) translateX(-100vw);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(.5, .5) translateX(50%);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+	
+	to {
+    transform: scale(1, 1) translateX(0%);
+  }
+}
+
+.versLeCentre {
+	opacity: 1;
+	animation: versLeCentre 750ms both;
+}
+
+
+/* Animation de l'étirement du mot
+   ========================================================================== */
+
+@keyframes etirerMot {
+	from {
+		transform: scale(1, 1);
+	}
+
+	30% {
+		transform: scale(1.25, 0.75);
+	}
+
+	40% {
+		transform: scale(0.75, 1.25);
+	}
+
+	50% {
+		transform: scale(1.15, 0.85);
+	}
+
+	65% {
+		transform: scale(.95, 1.05);
+	}
+
+	75% {
+		transform: scale(1.05, .95);
+	}
+
+	to {
+		transform: scale(1, 1);
+	}
+}
+
+.etirerMot {
+		opacity:1;
+		animation: etirerMot 750ms 250ms cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {margin: 0; padding :0;}
+            html {
+
+                width : 100vw;
+                height : 100vh;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .global {
+                display : flex;
+                flex-direction: column;
+                border : 1px solid #aaa;
+                justify-content: space-around;
+                height: 100vh;
+            }
+  
+            header, footer {
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                background-color : #5088a2;
+                color : #e6e1e1;
+                font-size: 1em;
+            }
+
+          header {
+           font-size: 2em;
+           height : 25vh;
+           padding : 10px;
+            }
+
+           footer {
+               height : 5vh;
+           } 
+
+
+        
+
+main {
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    border : 1px solid #aaa;
+
+}
+
+            .bouton {
+                display:flex;
+                flex-direction: row;
+         
+            }
+
+            .bouton button {
+
+                min-width: 20vw;
+                padding: 5px;
+                font-size: 1em;
+                margin : 5px;
+            
+            }
+
+            .choix {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+               flex : 1;
+                width : 90vw;
+                justify-content: space-between;
+            }
+
+            .choix div {
+                font-size: 2em;
+                display : flex;
+                flex-direction: row;
+                justify-content:space-around;
+                align-items: flex-start;
+                border-radius: 10px;
+                align-items:center;
+                flex : 1; 
+                max-height : 5vh;
+                min-width: 10vw;
+                padding : 10px;
+                background-color: #bbb;
+                transition: all 0.5s ease-in-out;
+                font-weight: 900;
+            }
+
+            .choix_div_couleur
+            {
+                color: #0000ff;
+                background-color: #0a0 !important;
+                transition: all 0.5s ease-in-out;
+                
+            }
+
+            .radio-choice {
+            }
+
+
+
+        </style>
+       
+
+    </head>
+    <body>
+        <div class='global'>
+            <header>
+                Exercice #1 - Programmation d'animation
+            </header>
+            <main>
+                <section class="func-choice"></section>
+                <section class='bouton'>
+                    <button id='boutChangerCouleur'>Changer couleur</button>
+                    <button id='boutCouleurAleatoire'>Couleur Aleatoire</button>
+                    <button id='boutAjouterDiv'>Ajouter</button>
+                    <button id='boutRetirerDiv'>Retirer</button>
+                    <button id='boutAjout50'>Ajouter 50 boutons</button>
+                </section>
+                <section class='choix'></section>
+            </main>
+            <footer>
+            Collège de Maisonneuve - Développement Web
+            </footer>
+        </div> <!-- fin .global -->
+    </body>
+        <script>
+            let bout
+
+            /* On définit les éléments bouton   */
+            let boutAjouterDiv = document.getElementById('boutAjouterDiv')
+            let boutRetirerDiv = document.getElementById('boutRetirerDiv')
+            let boutChangerCouleur = document.getElementById('boutChangerCouleur')
+            let boutCouleurAleatoire = document.getElementById('boutCouleurAleatoire')
+            let boutAjout50 = document.getElementById('boutAjout50')
+
+            let elmChoix = document.querySelector('.choix')
+
+            boutChangerCouleur.addEventListener('click', function(){
+                let elmDeChoix = document.querySelectorAll('.choix div')
+                for (let elm  of elmDeChoix )
+                {
+                    elm.classList.toggle('choix_div_couleur')
+                    console.log( elm.classList)
+                }
+            })
+
+    boutCouleurAleatoire.addEventListener('click', function () {
+        let elmDeChoix = document.querySelectorAll('.choix div')
+        for (let elm of elmDeChoix) {
+            let rouge = Math.floor(Math.random()*256);
+            let vert = Math.floor(Math.random() * 256);
+            let bleu = Math.floor(Math.random() * 256);
+            elm.style.backgroundColor = "rgb("+rouge+","+vert+","+bleu+")"
+            console.log(elm.classList)
+        }
+    })
+
+        let compteur = 0
+        function addBtns() {
+            let elmDiv = document.createElement('div');
+            elmChoix.appendChild(elmDiv);
+            elmDiv.innerHTML = ++compteur;
+            // On ajoute un écouteur à notre élément
+            elmDiv.addEventListener('click', applicateFunc);
+        };
+
+        boutAjouterDiv.addEventListener('click', function() {
+            addBtns();
+        });
+
+        boutAjout50.addEventListener('click', function(){
+            for (let i = 0; i < 50; i++) {
+                addBtns();
+            }
+        });
+
+        boutRetirerDiv.addEventListener('click', function(){
+            let elmDiv = elmChoix.lastChild
+            elmDiv.removeEventListener('click', changeCouleur)
+            elmChoix.removeChild(elmDiv)
+
+        })
+                
+/* Les fonction écouteurs */
+
+    function  changeCouleur(evt)
+    {
+    evt.target.classList.toggle('choix_div_couleur')
+    }
+
+
+
+    // Génèrer des radio boutons
+    var sectionChoice = document.querySelector('.func-choice');
+    function createRadio(idAttr) {
+        let elmRadio = document.createElement('INPUT');
+        let div = document.createElement('div');
+        elmRadio.setAttribute('type', 'radio');
+        elmRadio.setAttribute('name', 'func');
+        elmRadio.setAttribute('id', idAttr);
+
+        var elmLabel = document.createElement('label');
+        elmLabel.setAttribute('for', idAttr);
+
+        div.appendChild(elmRadio);
+        div.appendChild(elmLabel);
+        sectionChoice.appendChild(div);
+    }
+
+    // Créer et inserer les titres pour input et les id pour label
+    var titlesChoice = ['Couleur aléatoire', 'Couleur Noir', 'Insérer avant l’élément cliqué', 'Détruire l’élément cliqué'];
+    var idsChoice = ['fRandomColor', 'fColorBlack', 'fInserBefore', 'fDetruireElm'];
+
+    for (let i = 0; i < titlesChoice.length; i++) {
+        createRadio(idsChoice[i]);
+        let labels = sectionChoice.querySelectorAll('label');
+        labels[i].innerHTML += titlesChoice[i];
+    }
+
+    // Associer une option à une founction
+        // 1.0 Dédecter quel radiobox a été sélectionné
+        // 1.1 Récupèrer sa valeur
+        // 1.2 Appliquer une founction à une valeur choisit
+        // 1.3 Ajouter les écouteurs avec les bonnes founctions
+    let radios = sectionChoice.querySelectorAll('input');
+
+    let choiceValue = '';
+    for (let i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('click', function() {
+            choiceValue = this.id;
+            console.log(choiceValue);
+        });
+    }
+
+    function applicateFunc(e) {
+        if (choiceValue == 'fRandomColor') {
+            this.style.backgroundColor = randomRgbColor();
+        } else if (choiceValue == 'fColorBlack') {
+            this.style.backgroundColor = 'black';
+            this.style.color = 'white';
+        } else if (choiceValue == 'fInserBefore') {
+            inserteElmBefore(e);
+        } else if(choiceValue == 'fDetruireElm') {
+            elmChoix.removeChild(e.target);
+        }
+    }
+
+    // Couleur aléatoire
+    function randomRgbColor() {
+        let red = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+        let blue = Math.floor(Math.random() * 255);
+        return 'rgb('+red+', '+green+', '+blue+')';
+    }
+
+    function inserteElmBefore(e) {
+        let div = document.createElement('div');
+        div.addEventListener('click', applicateFunc);
+        div.innerHTML = "Ajouté " + compteur++;
+        elmChoix.insertBefore(div, e.target);
+    }
+
+        </script>
+</html>

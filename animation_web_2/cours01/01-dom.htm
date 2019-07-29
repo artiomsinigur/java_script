@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .global {
+                display : flex;
+                flex-direction: column;
+                border : 1px solid #aaa;
+
+            }
+
+main {
+    display:flex;
+}
+
+            main div {
+                font-size: 2em;
+                display : flex;
+                justify-content:space-around;
+                align-items:center;
+                flex : 0;
+                padding : 4px;
+                background-color: #fff;
+                transition: all 0.5s ease-in-out;
+                
+
+            }
+
+        </style>
+       
+
+    </head>
+    <body>
+        <div class='global'>
+            <header>
+                <h1>Premier cours de programmation d'animation</h1>
+            </header>
+            <main>
+                <button id='monBouton'></button>
+                <div>UN</div>
+                <div>DEUX</div>
+                <div>TROIS</div>
+            </main>
+            <footer>
+            Collège de Maisonneuve
+            </footer>
+        </div> <!-- fin .global -->
+    </body>
+        <script>
+            // let elmDiv = document.getElementsByTagName('div')[1]
+             let elmDiv = document.querySelector('main div')
+            elmDiv.style.backgroundColor = '#f00'
+            elmDiv.style.color = '#fff'
+        </script>
+</html>

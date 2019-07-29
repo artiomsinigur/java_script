@@ -1,0 +1,132 @@
+/* Reset...
+   ========================================================================== */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Mise en page globale...
+   ========================================================================== */
+html {
+	font-size: .875em;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	text-align: center;
+	
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+}
+
+header{
+	background-color: #373737;
+	color: #cbcbcb;
+	padding: 0.5rem;
+}
+
+
+h1{
+	margin: 0.5rem;
+	font-size: 1.6rem;
+}
+
+
+section {
+	/*Décoration*/
+	margin-top: 1rem;
+	background-color: #cbcbcb;
+	
+	/*Étirement comme item flex*/
+	flex: 1 1 auto;
+	/*Conteneur flex en rangée*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	/*Empêcher de voir le contenu qui déborde, notamment lors des animations des rectangles à l'intro...*/
+	overflow: hidden;
+}
+
+.contenu {
+	width: 100%;
+	margin: auto;
+
+	/*Conteneur flex en rangée centré avec passage à la ligne autorisé */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.rectangle {
+	height: 15vh;
+
+	line-height: 15vh;
+	font-size :  7.5em;
+	/*Propriété comme itemFlex*/
+	/* boîtes non flexibles du 1/3 de la largeur de son parent */
+	flex: 0 0 33.33333%;
+}
+
+/* À COMPLÉTER - Caractéristiques de chaque rectangle de l'intro...
+   ========================================================================== */
+.rectangle:first-of-type,
+.rectangle:last-of-type {
+	/* Le 1er et le dernier rectangle sont centrés sur une seule ligne...*/
+	margin: 0 33.333%;
+}
+
+.rectangle:nth-child(1) {
+	background-color: #e54792;
+	/* on anime le premier bloc avec l'animation anim1 pour une durée de 0.5s */
+	animation: anim1 .5s backwards;
+
+}
+
+.rectangle:nth-child(2) {
+	background-color: #f59723;
+	/* on anime le deuxième bloc avec l'animation anim2 pendant 0.5s après 0.5s */
+	animation: anim2 .5s .5s backwards;
+
+}
+
+.rectangle:nth-child(3) {
+	background-color: #58b34c;
+	/* on anime le deuxième bloc avec l'animation anim2 pendant 0.5s après 1s */
+	animation: anim3 .5s 1s backwards;
+
+}
+
+.rectangle:nth-child(4) {
+	background-color: #006d98;
+		/* on anime le deuxième bloc avec l'animation anim2 pendant 0.5s après 1.5s */
+	animation: animGo .5s 1.5s backwards;
+
+}
+
+
+
+/* Classe pour les ovales...
+   ========================================================================== */
+.ovale {
+	width: 15vw;
+	height: 25vh;
+	margin:5vh 2.5vw;
+	opacity:0;
+
+	/*Propriété comme itemFlex - ne peut pas rétrécir*/
+	flex-shrink: 0;
+	/*Décoration*/
+	background-color: #ff6279;
+	border-radius: 50%;
+	/*Animation*/
+	animation: animOvale 1s infinite alternate;
+}

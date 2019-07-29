@@ -1,0 +1,64 @@
+/* Règles @keyframes des animations
+   ========================================================================== */
+
+@keyframes anim1 {
+	from {
+		transform: translateY(-50vh);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes anim2 {
+	from {
+		transform: translateX(-200%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes anim3 {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes animGo {
+	from {
+		transform: translateY(50vh);
+	}
+	50%,
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes deplacementContenuIntro {
+	from {
+		transform: translateX(0%);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes animOvale {
+	from {	
+opacity:1;	
+		border-radius: 0 100%;	
+	}
+	
+	40%, 60%{		
+		border-radius: 50%;
+	}
+	
+	to {
+opacity:1;		
+		border-radius: 100% 0;
+	}
+}

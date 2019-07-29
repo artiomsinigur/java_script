@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function() {
+            var verifier = document.getElementById('verifier');
+            var nbr1 = document.getElementById('nbr1');
+            var nbr2 = document.getElementById('nbr2');
+            var messages = '';
+            
+            verifier.addEventListener('click', function() {
+                var getNbr1 = parseFloat(nbr1.value);
+                var getNbr2 = parseFloat(nbr2.value);
+                // console.log(typeof(getNbr2));
+                
+                console.log(remplace(getNbr1, getNbr2));
+                console.log(remplace(getNbr2, getNbr1));
+
+                function remplace(par1, par2) {
+                    // par1 = 5, par2 = 2
+                    var temp = par1;    // temp 5
+                    par1 = par2;        // par1 2 
+                    par2 = temp;        // par2 5
+
+                    return par2;
+                }
+
+
+
+
+                
+                permuter(getNbr1, getNbr2);
+
+                function permuter(par1, par2) {
+                    // par1 = 5, par2 = 2
+                    var temp = par1.value;    // temp 5
+                    par1.value = par2.value;        // par1 2 
+                    par2.value = temp;        // par2 5
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <label for="">Nom</label>
+        <input type="text" name="nbr1" id="nbr1">
+    </div>
+    <div>
+        <label for="">Prenom</label>
+        <input type="text" name="nbr2" id="nbr2">
+    </div>
+    <div>
+        <!-- <label for="">Text</label> -->
+        <!-- <textarea id="texte"></textarea> -->
+    </div>
+    <button type="button" id="verifier">Verifier</button>
+</body>
+</html>
+</head>
+<body>
+    
+</body>
+</html>

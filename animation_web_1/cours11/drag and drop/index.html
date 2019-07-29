@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css"> 
+	.zoneDrop {
+		height: 150px;
+		background-color: #ccc;
+	}
+</style>
+<script>
+window.addEventListener("load", function(){
+	var imgs = document.querySelectorAll('.images');
+	var zoneDrop = document.querySelector('.zoneDrop');
+
+	/*
+	img1.addEventListener('dragstart', function() {
+		img1.style.border = "2px solid red";
+	});
+	
+	// c'est la même chose
+	img1.addEventListener('dragstart', dragStartEvent, false);
+	function dragStartEvent() {
+		img1.style.border = '2px solid red';
+	}
+	*/
+
+	for (var i = 0; i < imgs.length; i++) {
+		// imgs[i].addEventListener('dragstart', function() {
+		// 	imgs[i].style.border = "2px solid red";
+		// });
+		imgs[i].addEventListener('dragstart', dragStartEvent);
+		imgs[i].addEventListener('dragend', dragEndEvent);
+	}
+
+	function dragStartEvent(e) {
+		this.style.opacity = '.5';
+		this.style.transform = 'scale(.65)';
+
+		// Mettre l'element dans un conteneur
+		var edt = e.dataTransfer;
+		
+		// this se refère à l'element qu'on viens de selectionner
+		// Recuperer la valeur de l'attribute src
+		edt.setData('text/html', this.getAttribute('src'));
+		console.log(edt.getAttribute('src'));
+	}
+
+	function dragEndEvent() {
+		this.style.opacity = '1';
+		this.style.transform = 'scale(1)';
+	}
+
+
+	// Drop
+	zoneDrop.addEventListener('dragenter', dragEnterEvent);
+	zoneDrop.addEventListener('dragleave', dragLeaveEvent);
+	zoneDrop.addEventListener('dragover', dragOverEvent);
+	zoneDrop.addEventListener('drop', dropEvent);
+
+	function dragEnterEvent() {
+		this.style.border = '2px solid red';
+	}
+	function dragLeaveEvent() {
+		this.style.border = 'none';
+	}
+	function dragOverEvent(e) {
+		// Annuler l'interdiction de faire le drop
+		e.preventDefault();
+	}
+	function dropEvent(e) {
+		this.style.backgroundColor = 'lightgreen';
+
+		var img, srcImg = e.dataTransfer.getData('text/html');
+		img = document.createElement('img');
+		img.src = srcImg;
+		e.target.appendChild(img);
+		console.log(srcImg);
+	}
+
+});
+</script>
+</head>
+<body>
+<div>
+	<img src="images/image.png" alt="image" class="images" />
+	<img src="images/image2.jpg" alt="image" class="images" />
+</div>
+	<p draggable="true"  >Mon paragraphe</p>
+	<a href="#">lien </a>
+	
+<div class="zoneDrop" dropzone="copy string:text/html" ></div>
+</body>
+</html>
+

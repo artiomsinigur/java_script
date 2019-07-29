@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function() {
+            var data = document.querySelector('.data');
+            var text = {
+                        "squadName": "Super hero squad",
+                        "homeTown": "Metro City",
+                        "formed": 2016,
+                        "secretBase": "Super tower",
+                        "active": true,
+                        "members": [
+                        {
+                            "name": "Molecule Man",
+                            "age": 29,
+                            "secretIdentity": "Dan Jukes",
+                            "powers": [
+                                    "Immortality",
+                                    "Heat Immunity",
+                                    "Inferno",
+                                    "Teleportation",
+                                    "Interdimensional travel"
+                            ]
+                        }
+                        ]
+                    };
+            // var objData = JSON.parse(text);
+            var x = '';
+            objText = text.members[0].powers;
+
+            for (let i = 0; i < objText.length; i++) {
+                x += objText[i] + "<br>";
+            }
+            data.innerHTML = x;
+        });
+    </script>
+</head>
+<body>
+    <div class="data">
+
+    </div>
+</body>
+</html>

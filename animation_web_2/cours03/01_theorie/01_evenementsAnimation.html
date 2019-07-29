@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01-Événements des animations</title>
+
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Reset... */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Mise en page */
+
+        html {
+            font-size: .875em;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100vw;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 1rem;
+            text-align: center;
+            /*Conteneur Flex en colonne*/
+            display: flex;
+            flex-direction: column;
+        }
+
+        header,
+        footer {
+            padding: 0.5rem;
+            background-color: #ffeb3e;
+            color: #3e3e3e;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+            text-shadow: 0 2px 2px #b8b8b8;
+        }
+
+
+        section {
+            /*Étirement comme item flex*/
+            flex: 1 1 auto;
+
+            /*Conteneur flex en rangée*/
+            display: flex;
+            align-items: center;
+
+            /*Décoration*/
+            margin: 1rem 0;
+            background-color: #e4e4e4;
+        }
+
+
+        /* Animation */
+
+        @keyframes deplacerRectangle {
+            from {
+                transform: translateX(0%);
+                animation-timing-function: linear;
+            }
+
+            to {
+                transform: translateX(200%);
+            }
+        }
+
+
+        #rectangle {
+            width: 33.333333%;
+            height: 40vh;
+            background-color: #b8b8b8;
+            /*Gris moyen*/
+            /*Point de transformation à gauche au centre*/
+            transform-origin: left center;
+        }
+
+
+        /* Styles pour les écrans plus larges*/
+
+        @media screen and (min-width: 768px) {
+            /*On augmente la taille du texte*/
+            html {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            /*On augmente la taille du texte*/
+            html {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Écouter et gérer les événements des animations</h1>
+    </header>
+
+    <section>
+        <div id="rectangle"> Cliquez sur moi pour commencer l'animation!</div>
+    </section>
+
+    <footer>
+        <p>Cet exemple utilise la méthode addEventListener() pour gérer les événements <i>animationstart</i>, <i>animationiteration</i> et <i>animationend</i> d'un élément &lt;div&gt;.</p>
+    </footer>
+
+
+    <!-- Scripts Javascript -->
+    <script type="text/javascript">
+        (function() { //IIFE
+
+            //Récupérer le rectangle
+            var leRectangle = document.querySelector("#rectangle");
+
+            //Attribuer un écouteur pour démarrer l'animation sur l'événement "click"
+            leRectangle.addEventListener("click", jouer, false);
+
+            //Fonction pour démarrer l'animation
+            function jouer() {
+				console.log("On a cliqué sur moi!");
+				
+                //Attribuer l'animation : durée 5s, 2 itérations
+                leRectangle.style.animationName = 'deplacerRectangle';
+                leRectangle.style.animationDuration = '3s';
+                leRectangle.style.animationIterationCount = '2';
+
+                //Attribution des gestionnaires d'événements pour l'animation
+                leRectangle.addEventListener('animationstart', demarrageAnimation);
+                leRectangle.addEventListener('animationiteration', repetitionAnimation);
+                leRectangle.addEventListener('animationend', finalisationAnimation);
+
+                //Enlever l'écouteur d'événement sur le "click"
+                leRectangle.removeEventListener("click", jouer, false);
+               
+            }
+
+            //Fonctions à exécuter sur les différents événements de l'animation
+            function demarrageAnimation(evt) {
+                console.log(evt.type);
+                this.innerHTML = "Événement : " + "<br><br>L'animation a commencé...";
+                
+            }
+
+            function repetitionAnimation(evt) {
+                console.log(evt.type);
+                this.innerHTML = "Événement : " + "<br><br>L'animation joue une seconde fois...";
+                
+            }
+
+            function finalisationAnimation(evt) {
+                console.log(evt.type);
+                this.innerHTML = "Événement : " +  "<br><br>L'animation est terminée...";
+                
+            }
+
+
+        })(); //Fin IIFE
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title> Exercice 3</title>
+	<meta charset="UTF-8">
+	<meta name="viewimage" content="initial-scale=1.0">
+	<style>
+	#menu{
+		width:150px;
+		height:55px;
+		background-color:grey;
+	}
+	#sousmenu{
+		display: none;
+		width:150px;
+		height:155px;
+		background-color:yellow;
+	}
+	.show {
+		display: block;
+	}
+	</style>
+<script>
+	window.addEventListener('load', function() {
+		var menu = document.getElementById('menu');
+		var sousmenu = document.getElementById('sousmenu');
+		
+		// Appeler la fonction getMenu
+		getMenu(menu);
+	 
+		function getMenu(varMenu) {
+			varMenu.addEventListener('mouseover', function() {
+				sousmenu.style.display = 'block';
+			});
+			sousmenu.addEventListener('mouseover', function() {
+				sousmenu.style.display = 'block';
+			});
+
+			varMenu.addEventListener('mouseout', function() {
+				varMenu.nextElementSibling.style.display = 'none';
+			})
+			sousmenu.addEventListener('mouseout', function() {
+				varMenu.nextElementSibling.style.display = 'none';
+			})
+		}
+	});
+</script>
+
+
+</head>
+<body>
+
+	<div id="menu">Menu</div>
+	<div id="sousmenu" class="dropdown">
+		Sous Menu
+	</div>
+
+
+</body>
+
+</html>

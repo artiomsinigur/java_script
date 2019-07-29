@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title> Exercice 1</title>
+	<meta charset="UTF-8">
+	<meta name="viewimage" content="initial-scale=1.0">
+<style>
+label{
+	display:block;
+	width:150px;
+}
+</style>
+<script>
+	window.addEventListener('load', function(){
+		var envoyer = document.getElementById('envoyer1');
+		var produit = document.getElementById('produit1');
+		var prix = document.getElementById('prix1');
+		var resultat = document.getElementById('resultat1');
+		var cat = document.querySelectorAll('input[type=radio]');
+
+		envoyer.addEventListener('click', function(e) {
+			var getPrix = parseFloat(prix.value);
+
+			for(var i = 0; i < cat.length; i++){
+				if(cat[i].checked) {
+					var taux = cat[i].value / 100;
+					resultat.value = calcTax(getPrix, taux);
+				}
+			}
+			
+			function calcTax(prix, tax) {
+				var result = prix * tax + prix;
+				return result;
+			}
+		});
+	});
+</script>
+
+</head>
+
+<body>
+	<div id="erreur"></div>
+	<form>
+		<div>
+			<label for="produit1">Produit</label> <input type="text" name="produit1"  id="produit1"/>	
+		</div>	
+		<div>
+			<label for="prix1">Prix</label> <input type="text" name="prix1" id="prix1"/>	
+		</div>	
+		<div>
+			Taxe categorie1 <input type="radio" name="categorie" value="5" class="categorie"/>5%<br/>
+			Taxe categorie2 <input type="radio" name="categorie" value="10" class="categorie"/>10%<br/>
+			Taxe categorie3 <input type="radio" name="categorie" value="15" class="categorie"/>15%<br/>	
+		</div>
+		<div>
+			<label for="resultat1">Résultat</label> <input type="text" name="resultat1" value="" id="resultat1"/>			
+		</div>	
+		<div>
+			 <input type="button" name="envoyer"  value="Calculer" id="envoyer1"/>		
+		</div>	
+	</form>
+</body>
+
+</html>

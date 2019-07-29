@@ -1,0 +1,55 @@
+/* Reset... */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+/* Mise en page */
+
+html {
+	font-size: .875em;
+}
+
+body {
+	min-height: 100vh;
+	max-width: 100vw;
+	font-family: monospace;
+	font-size: 1rem;
+	text-align: center;
+	color: white;
+	display: flex;
+}
+
+
+h1 {
+	margin: auto;
+	font-size: 1.6rem;
+	text-shadow: 0 2px 2px #b8b8b8;
+}
+
+section {
+	height: 100vh;
+	width: 100vw;
+	background-color: #D3DFDD;
+
+	overflow: hidden;
+
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.lesMots {
+	font-family: 'Nova Mono', monospace;
+	font-size: 8vh;
+	font-weight: bold;
+	line-height: 8vh;
+	text-shadow: 0 2px 2px #b8b8b8;
+	opacity: 0;
+	position: relative;
+}

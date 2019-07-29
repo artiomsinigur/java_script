@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function() {
+            var btn = document.getElementById('btn');
+            var zone = document.querySelector('.zone');
+            
+            btn.addEventListener('click', function() {
+                var surface = prompt('Saisir la surface', surface);
+                // console.log(typeof(surface));
+                // Convertir en nombre
+                var getNumberOfSurface = parseFloat(surface);
+                var resultatSurface = Math.PI * getNumberOfSurface * getNumberOfSurface;
+                // Formater un nombre. Donner le decimale de 2 d'un nombre
+                var resultat = parseFloat(resultatSurface.toFixed(2));
+                zone.innerHTML = resultat;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="zone"></div>
+    <button type="button" id="btn">Calculer la surface</button>
+</body>
+</html>

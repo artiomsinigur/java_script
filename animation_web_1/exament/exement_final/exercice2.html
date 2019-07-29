@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Exercice 2</title>
+		<meta charset="UTF-8">
+		<meta name="viewimage" content="initial-scale=1.0">
+		<style>
+			label{
+				display:block;
+				width:150px;
+			}
+		</style>
+<script>
+	window.addEventListener('load', function(){
+		var envoyer = document.getElementById('envoyer1');
+		var pseudo = document.getElementById('pseudonyme1');
+		var email = document.getElementById('email1');
+		var message = document.getElementById('message1');
+
+		var err_pseudo = document.getElementById('err_pseudo');
+		var err_email = document.getElementById('err_email');
+		var err_msg = document.getElementById('err_msg');
+
+		envoyer.addEventListener('submit', function(event) {
+			verifier(event);
+		});
+		
+		function verifier(event) {
+			var bVerifier = false;
+			var msg = '';
+			// Premiere lettre en majuscule et au moins 3 caracteres
+			var regPseudo = /^[A-Za-z]{6,}/;
+
+			if (regPseudo.test(pseudo.value)) {
+				console.log('Pseudo Marche');
+			} else {
+				msg += 'Pseudo Marche pas\n';
+				bVerifier = true;
+			}
+
+			var regEmail = /[A-Za-z]{2,20}@[A-Za-z]{1,20}\.{1}[a-z]{1,5}/;
+			if (regEmail.test(email.value)) {
+				console.log('Email marche');
+			} else {
+				msg += 'Email marche pas\n';
+				bVerifier = true;
+			}
+
+			var regMessage = /^[A-Za-z]{25,}/;
+			if (regMessage.test(message.value)) {
+				console.log('Message marche');
+			} else {
+				msg += 'Message marche pas\n';
+				bVerifier = true;
+			}
+
+			if (bVerifier) event.preventDefault();
+
+			if (msg != '') {
+				// debugger;
+				var li = document.createElement('li');
+				document.querySelector('body').append(li)
+
+				var div = document.createElement('div');
+				li.append(div)
+				var msgErreur = document.createTextNode(msg);
+				div.append(msgErreur);
+			}
+		}
+		msg = '';
+	});
+</script>
+
+	</head>
+	<body>
+	<form method="post" action="traitement.php" id="envoyer1">
+			<!-- traitement.php  et submit-->
+		<div>
+			<label for="produit1">Pseudonyme</label> <input type="text" class="champs"  name="pseudonyme1" value="" id="pseudonyme1"/>
+			<span id="err_pseudo"></span>			
+		</div>	
+		<div>
+			<label for="produit1">Email</label> <input type="text"  class="champs" name="email1" value="" id="email1"/>	
+			<span id="err_email"></span>
+		</div>
+		<div>
+			<label for="resultat1">Message</label><textarea id="message1" class="champs"></textarea>
+		</div>	
+		<span id="err_msg"></span>	<span id="restant"></span>			
+		<div>
+			 <input type="submit" name="envoyer"  value="Envoyer"/>		
+		</div>	
+	</form>
+	</body>
+</html>

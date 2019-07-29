@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function() {
+            var verifier = document.getElementById('verifier');
+            var messages = '';
+
+            // var nom = document.getElementById('nom');
+            // var prenom = document.getElementById('prenom');
+            // var texte = document.getElementById('texte');
+            
+            verifier.addEventListener('click', function() {
+                /*
+                if (nom.value == '') {
+                    messages += 'Veuillez entrez nom';        
+                }
+                if (prenom.value == '') {
+                    messages += 'Veuillez entrez prenom';        
+                }
+                if (texte.value == '') {
+                    messages += 'Veuillez entrez prenom';        
+                }
+                */
+
+                
+                var inputs = document.querySelectorAll('input[type=text]');
+                var textarea = document.getElementsByTagName('textarea')[0];
+
+                for (let i = 0; i < inputs.length; i++) {
+                    if (inputs[i].value == '') {
+                        messages += 'Veuillez entrez votre ' + inputs[i].name; 
+                    }
+                }
+                
+                if (messages != '') {
+                    alert(messages);
+                }
+                messages = '';
+
+                // obtenir la valeur de textarea avec .value
+                // est un exeption
+                if (textarea.value == '') {
+                    alert('textarea est vide');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <label for="">Nom</label>
+        <input type="text" id="nom" name="nom">
+    </div>
+    <div>
+        <label for="">Prenom</label>
+        <input type="text" id="prenom" name="prenom">
+    </div>
+    <div>
+        <label for="">Text</label>
+        <textarea id="texte"></textarea>
+    </div>
+    <button type="button" id="verifier">Verifier</button>
+</body>
+</html>
+</head>
+<body>
+    
+</body>
+</html>
