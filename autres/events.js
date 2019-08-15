@@ -59,7 +59,7 @@ btn.addEventListener('click', (e) => {
 
 // ====================
 // Attaching listeners to groups of nodes
-// ====================
+// =====================
     const btns = document.querySelectorAll('button');
     // buttons is a node list. It looks and acts much like an array.
 

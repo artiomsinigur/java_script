@@ -1,0 +1,64 @@
+/* Reset... */
+
+/* ========================================================================== */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Mise en page globale...*/
+
+/* ========================================================================== */
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	max-width: 100vw;
+	height: 100vh;
+	background-color: black;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.4rem;
+	text-align: center;
+
+	/*Conteneur flex en colonnes*/
+	display: flex;
+	flex-direction: column;
+}
+
+header,
+footer {
+	color: #a4bed2;
+	padding: 1%;
+}
+
+header {
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+footer {
+	font-style: italic;
+}
+
+section {
+	background-color: #003366;
+	width: 80%;
+	margin: 0 auto;
+
+	/*Étirement en hauteur comme item-flex*/
+	flex: 1 0 auto;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div {
+	color: white;
+	font-size: 36rem;
+	line-height: 36rem;
+}

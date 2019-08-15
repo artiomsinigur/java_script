@@ -1,0 +1,98 @@
+/* Reset... */
+
+/* ========================================================================== */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Mise en page globale...*/
+
+/* ========================================================================== */
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	max-width: 100vw;
+	height: 100vh;
+	background-color: black;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.4rem;
+	text-align: center;
+
+	/*Conteneur flex en colonnes*/
+	display: flex;
+	flex-direction: column;
+}
+
+header,
+footer {
+	color: #a4bed2;
+	padding: 1%;
+}
+
+header {
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+footer {
+	font-style: italic;
+}
+
+section {
+	background-color: #003366;
+	width: 80%;
+	margin: 0 auto;
+
+	/*Étirement en hauteur comme item-flex*/
+	flex: 1 0 auto;
+
+	overflow: hidden;
+	cursor: pointer;
+
+	/*Positionnement*/
+	position: relative;
+}
+
+
+/*Animation et classe pour l'étoile animée... */
+
+/* ========================================================================== */
+
+@keyframes animEtoile {
+	from {
+		transform: scale(0.1) rotate(0deg);
+		opacity: 0.1;
+	}
+
+	60% {
+		transform: scale(2.5) rotate(180deg);
+		opacity: 1;
+	}
+
+	to {
+		transform: scale(0.1) rotate(360deg);
+		opacity: 0.1;
+	}
+}
+
+.etoileAnim {
+	color: white;
+
+	/*Positionnement*/
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/*Animation */
+	animation: animEtoile 1s infinite;
+}
+
+.etoileAnim::after {
+	content: "\2605";
+}
