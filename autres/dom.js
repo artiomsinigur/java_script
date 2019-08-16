@@ -69,3 +69,12 @@ let borderSection = document.querySelector('.borderSection');
 
 createElement('h1', 'I\'m in a div', borderSection);
 createElement('p', 'My too', borderSection);
+
+
+// Obtenir la position du cursor/
+let log = (e) => {
+    leCiel.innerText = `
+        screenX/Y: ${e.screenX}, ${e.screenY}
+        clientX/Y ${e.clientX}, ${e.clientY}
+        offsetX/Y ${e.offsetX}, ${e.offsetY}`;
+};
